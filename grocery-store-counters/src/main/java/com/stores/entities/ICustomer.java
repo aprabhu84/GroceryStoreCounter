@@ -1,6 +1,6 @@
-package com.stores.object;
+package com.stores.entities;
 
-public interface ICustomer {
+public interface ICustomer extends Comparable<ICustomer> {
 	
 	public String getCustomerType();
 	public int getTimeArrived();

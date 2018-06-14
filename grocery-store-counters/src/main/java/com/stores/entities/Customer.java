@@ -1,4 +1,4 @@
-package com.stores.object;
+package com.stores.entities;
 
 public class Customer implements ICustomer {
 	
@@ -29,6 +29,12 @@ public class Customer implements ICustomer {
 	
 	public void billItem(){
 		itemsInHand--;
+	}
+
+	@Override
+	public int compareTo(ICustomer o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
