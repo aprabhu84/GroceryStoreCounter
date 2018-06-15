@@ -1,17 +1,17 @@
-package com.store.manager;
+package com.store.cust;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.stores.entities.ICustomer;
+import com.store.cust.entities.ICustomer;
 
-public class ManageStore {
+public class ManageCustomers {
 
 	private List<ICustomer> customersInStore;
 	
-	public ManageStore(List<ICustomer> customersInStore){
+	public ManageCustomers(List<ICustomer> customersInStore){
 		this.customersInStore = customersInStore;
 	}
 	

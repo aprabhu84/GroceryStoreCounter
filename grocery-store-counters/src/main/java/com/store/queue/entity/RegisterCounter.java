@@ -1,10 +1,14 @@
-package com.stores.entities;
+package com.store.queue.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RegisterCounter implements Comparable<RegisterCounter> {
+import com.store.cust.entities.Customer;
+import com.store.cust.entities.ICustomer;
+import com.store.enums.CashierTypeEnum;
+
+public class RegisterCounter implements IRegisterCounter{
 
 	private int assignedRegId;
 	private List<ICustomer> custQueue;
@@ -87,7 +91,7 @@ public class RegisterCounter implements Comparable<RegisterCounter> {
 			return false;
 		} else {
 
-			if (timeCounter == 0) {
+			if (timeCounter <= 0) {
 				timeCounter = experties - 1;
 				return true;
 			} else {
@@ -114,9 +118,10 @@ public class RegisterCounter implements Comparable<RegisterCounter> {
 	}
 
 	@Override
-	public int compareTo(RegisterCounter o) {
+	public int compareTo(IRegisterCounter o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }

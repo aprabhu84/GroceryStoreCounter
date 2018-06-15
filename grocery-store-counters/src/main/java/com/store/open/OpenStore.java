@@ -1,4 +1,4 @@
-package com.stores.open;
+package com.store.open;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.stores.bo.StoreBO;
-import com.stores.entities.Customer;
-import com.stores.entities.ICustomer;
+import com.store.bo.StoreBO;
+import com.store.cust.entities.Customer;
+import com.store.cust.entities.ICustomer;
 
 public class OpenStore {
 
@@ -25,6 +25,7 @@ public class OpenStore {
 				customerInStore.add(new Customer(cust));
 			}
 
+			inputReader.close();
 			return new StoreBO(counters, customerInStore);
 			
 		} catch (IOException e) {

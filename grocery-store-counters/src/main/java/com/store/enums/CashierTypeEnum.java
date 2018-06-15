@@ -1,4 +1,4 @@
-package com.stores.entities;
+package com.store.enums;
 
 public enum CashierTypeEnum {
 	CASHIER (1),

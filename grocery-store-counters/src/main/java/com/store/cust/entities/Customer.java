@@ -1,4 +1,4 @@
-package com.stores.entities;
+package com.store.cust.entities;
 
 public class Customer implements ICustomer {
 	

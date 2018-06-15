@@ -1,8 +1,8 @@
-package com.stores.bo;
+package com.store.bo;
 
 import java.util.List;
 
-import com.stores.entities.ICustomer;
+import com.store.cust.entities.ICustomer;
 
 public class StoreBO {
 	private int counters;
