@@ -2,7 +2,7 @@ package com.store.queue.selectorschain;
 
 import com.store.cust.entities.ICustomer;
 
-public class InvalidCustomerInChain implements SelectQueueChain {
+public class InvalidCustomerInChain implements QueueSelectionChain {
 
 	@Override
 	public void selectQueue(ICustomer cust) {
@@ -10,7 +10,7 @@ public class InvalidCustomerInChain implements SelectQueueChain {
 	}
 
 	@Override
-	public void tryNextAssignment(SelectQueueChain tryNextSelection) {
+	public void tryNextAssignment(QueueSelectionChain tryNextSelection) {
 		// TODO Auto-generated method stub
 
 	}

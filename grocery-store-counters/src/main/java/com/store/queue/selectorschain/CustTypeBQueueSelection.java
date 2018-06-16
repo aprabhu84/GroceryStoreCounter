@@ -8,22 +8,22 @@ import com.store.enums.CustomerTypeEnum;
 import com.store.queue.SingletonQueueCreator;
 import com.store.queue.entity.IRegisterCounter;
 
-public class SelectLastLeastItems implements SelectQueueChain {
+public class CustTypeBQueueSelection implements QueueSelectionChain {
 
-	private SelectQueueChain tryNextSelection;
+	private QueueSelectionChain tryNextSelection;
 	private List<IRegisterCounter> availableRegisters;
 
 	/**
 	 * 
 	 */
-	public SelectLastLeastItems() {
+	public CustTypeBQueueSelection() {
 		availableRegisters = SingletonQueueCreator.getAvailableRegisters();
 		tryNextAssignment(new InvalidCustomerInChain());
 	}
 
 	@Override
 	public void selectQueue(ICustomer cust) {
-		if (cust.getCustomerType().equals(CustomerTypeEnum.B.getCustType())) {
+		if (cust.getCustomerType().equals(CustomerTypeEnum.B)) {
 			availableRegisters.stream()
 					.sorted(Comparator.comparing(IRegisterCounter::getItemsWithLastCustomer)
 							.thenComparing(IRegisterCounter::getAssignedRegId))
@@ -34,7 +34,7 @@ public class SelectLastLeastItems implements SelectQueueChain {
 	}
 
 	@Override
-	public void tryNextAssignment(SelectQueueChain tryNextSelection) {
+	public void tryNextAssignment(QueueSelectionChain tryNextSelection) {
 		this.tryNextSelection = tryNextSelection;
 	}
 

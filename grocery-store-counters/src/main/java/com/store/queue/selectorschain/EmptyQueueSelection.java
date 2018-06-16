@@ -8,17 +8,17 @@ import com.store.cust.entities.ICustomer;
 import com.store.queue.SingletonQueueCreator;
 import com.store.queue.entity.IRegisterCounter;
 
-public class SelectEmptyQueue implements SelectQueueChain {
+public class EmptyQueueSelection implements QueueSelectionChain {
 
-	private SelectQueueChain tryNextSelection;
+	private QueueSelectionChain tryNextSelection;
 	private List<IRegisterCounter> availableRegisters;
 	
 	/**
 	 * 
 	 */
-	public SelectEmptyQueue() {
+	public EmptyQueueSelection() {
 		availableRegisters = SingletonQueueCreator.getAvailableRegisters();
-		tryNextAssignment(new SelectShortestQueue());
+		tryNextAssignment(new CustTypeAQueueSelection());
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class SelectEmptyQueue implements SelectQueueChain {
 	 * 
 	 */
 	@Override
-	public void tryNextAssignment(SelectQueueChain tryNextSelection) {
+	public void tryNextAssignment(QueueSelectionChain tryNextSelection) {
 		this.tryNextSelection = tryNextSelection;
 	}
 

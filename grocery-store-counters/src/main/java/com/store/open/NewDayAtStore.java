@@ -1,19 +1,19 @@
-package com.store.daystart;
+package com.store.open;
 
 import java.util.List;
 
-import com.store.bo.StoreBO;
+import com.store.bo.StoreReadyBO;
 import com.store.cust.ManageCustomers;
 import com.store.cust.entities.ICustomer;
-import com.store.open.OpenStore;
 import com.store.queue.ManageQueue;
+import com.store.ready.OpenStore;
 
 public class NewDayAtStore {
 
 	public static void main(String... args) throws Exception {
 
 		String fileName = args[0];
-		StoreBO storeBO = OpenStore.openStoreForTheDay(fileName);
+		StoreReadyBO storeBO = OpenStore.openStoreForTheDay(fileName);
 		ManageCustomers storeManager = new ManageCustomers(storeBO.getCustomersInStore());
 		ManageQueue availableRegisters = new ManageQueue(storeBO.getCounters());
 

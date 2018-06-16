@@ -4,13 +4,13 @@ import java.util.List;
 
 import com.store.cust.entities.ICustomer;
 import com.store.queue.entity.IRegisterCounter;
-import com.store.queue.selectorschain.SelectEmptyQueue;
-import com.store.queue.selectorschain.SelectQueueChain;
+import com.store.queue.selectorschain.EmptyQueueSelection;
+import com.store.queue.selectorschain.QueueSelectionChain;
 
 public class ManageQueue {
 
 	private List<IRegisterCounter> availableRegisters;
-	private SelectQueueChain selectQueueForCust;
+	private QueueSelectionChain selectQueueForCust;
 	private boolean firstCustomerArrived = false;
 	
 	/**
@@ -20,7 +20,7 @@ public class ManageQueue {
 	public ManageQueue(int activeRegisterCount){
 		SingletonQueueCreator.getInstance(activeRegisterCount);
 		availableRegisters = SingletonQueueCreator.getAvailableRegisters();
-		selectQueueForCust = new SelectEmptyQueue();
+		selectQueueForCust = new EmptyQueueSelection();
 	}
 	
 	/**

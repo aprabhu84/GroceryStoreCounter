@@ -1,21 +1,23 @@
 package com.store.cust.entities;
 
+import com.store.enums.CustomerTypeEnum;
+
 public class Customer implements ICustomer {
-	
+
 	private static final String REC_SEPARATOR = " ";
-	
-	private String customerType;
+
+	private CustomerTypeEnum customerType;
 	private int timeArrived;
 	private int itemsInHand;
-	
-	public Customer(String customerEntry){
+
+	public Customer(String customerEntry) {
 		String[] records = customerEntry.split(REC_SEPARATOR);
-		this.customerType = records[0];
+		this.customerType = CustomerTypeEnum.getCustomerTypeEnum(records[0]);
 		this.timeArrived = Integer.parseInt(records[1]);
 		this.itemsInHand = Integer.parseInt(records[2]);
 	}
-	
-	public String getCustomerType() {
+
+	public CustomerTypeEnum getCustomerType() {
 		return customerType;
 	}
 
@@ -26,8 +28,8 @@ public class Customer implements ICustomer {
 	public int getItemsInHand() {
 		return itemsInHand;
 	}
-	
-	public void billItem(){
+
+	public void billItem() {
 		itemsInHand--;
 	}
 
@@ -35,6 +37,13 @@ public class Customer implements ICustomer {
 	public int compareTo(ICustomer o) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer Type : " + getCustomerType() 
+			+ ", Arrived At : " + getTimeArrived() 
+			+ ", With Items : " + getItemsInHand();
 	}
 
 }

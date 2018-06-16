@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.store.cust.entities.ICustomer;
 
-public class StoreBO {
+public class StoreReadyBO {
 	private int counters;
 	private List<ICustomer> customersInStore;
 	
@@ -13,7 +13,7 @@ public class StoreBO {
 	 * @param counters
 	 * @param customerInStore
 	 */
-	public StoreBO(int counters, List<ICustomer> customerInStore){
+	public StoreReadyBO(int counters, List<ICustomer> customerInStore){
 		this.counters = counters;
 		this.customersInStore = customerInStore;
 	}

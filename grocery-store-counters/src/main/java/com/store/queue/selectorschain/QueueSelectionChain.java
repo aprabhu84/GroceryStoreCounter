@@ -2,9 +2,9 @@ package com.store.queue.selectorschain;
 
 import com.store.cust.entities.ICustomer;
 
-public interface SelectQueueChain {
+public interface QueueSelectionChain {
 
 	public void selectQueue(ICustomer cust);
-	public void tryNextAssignment(SelectQueueChain tryNextSelection);
+	public void tryNextAssignment(QueueSelectionChain tryNextSelection);
 	
 }
