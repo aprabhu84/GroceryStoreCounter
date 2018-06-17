@@ -49,9 +49,7 @@ public class AssignedCashier implements IAssignedCashier {
 			if (register.getCustQueue().size()==1){
 				itemsWithLastCustomer = register.getCustQueue().get(0).getItemsInHand();
 			}
-			StoreEventLogger.logMessage(cust, " >> Item Biled at Register - " + register.getAssignedRegId());
-			StoreEventLogger.logMessage(cust,
-					"Customer is billed for 1 Item at the queue " + register.getAssignedRegId());
+			StoreEventLogger.logMessage(cust, " >> 1 Item Biled at Register - " + register.getAssignedRegId());
 		}
 
 	}
