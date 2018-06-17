@@ -3,22 +3,24 @@ package com.store.queue;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.store.entities.IAssignedCashier;
+import com.store.entities.IRegisterEntity;
+import com.store.entities.impl.AssignedCashier;
+import com.store.entities.impl.RegisterEntity;
 import com.store.enums.CashierTypeEnum;
-import com.store.queue.entity.IRegisterCounter;
-import com.store.queue.entity.RegisterCounter;
 
 public class SingletonQueueCreator {
 
 	private static SingletonQueueCreator queueCreator = null;
 	
-	private static List<IRegisterCounter> availableRegisters = null;
+	private static List<IAssignedCashier> availableCashiers = null;
 	
 	/**
 	 * 
 	 * @param counters
 	 */
 	private SingletonQueueCreator(int counters){
-		setupRegisterCounters(counters);
+		setupCashiersAtRegisters(counters);
 	}
 	
 	/**
@@ -26,7 +28,7 @@ public class SingletonQueueCreator {
 	 * @param counters
 	 * @return
 	 */
-	public static SingletonQueueCreator getInstance(int counters){
+	public static SingletonQueueCreator createInstance(int counters){
 		if(queueCreator == null){
 			queueCreator = new SingletonQueueCreator(counters);
 		}
@@ -37,20 +39,20 @@ public class SingletonQueueCreator {
 	 * 
 	 * @return
 	 */
-	public static List<IRegisterCounter> getAvailableRegisters(){
-		return availableRegisters;
+	public static List<IAssignedCashier> getAvailableCashiers(){
+		return availableCashiers;
 	}
 	
 	/**
 	 * 
 	 * @param counters
 	 */
-	private static void setupRegisterCounters(int counters){
-		availableRegisters = new ArrayList<IRegisterCounter>();
+	private static void setupCashiersAtRegisters(int counters){
+		availableCashiers = new ArrayList<IAssignedCashier>();
 		for (int i = 1; i<counters; i++){
-			availableRegisters.add(new RegisterCounter(i, CashierTypeEnum.CASHIER));
+			availableCashiers.add(new AssignedCashier(i, CashierTypeEnum.CASHIER));
 		}
-		availableRegisters.add(new RegisterCounter(counters, CashierTypeEnum.TRAINEE));
+		availableCashiers.add(new AssignedCashier(counters, CashierTypeEnum.TRAINEE));
 	}
 	
 }
