@@ -6,7 +6,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.store.entities.ICustomerEntity;
-import com.store.entities.IRegisterEntity;
 import com.store.entities.impl.CustomerEntity;
 import com.store.queue.SingletonQueueCreator;
 import com.store.queue.selection.EmptyQueueSelection;
@@ -16,11 +15,11 @@ import junit.framework.Assert;
 
 public class SelectionChainTest {
 	
-	private static QueueSelectionChain selectQueueForCust;
+	private QueueSelectionChain selectQueueForCust;
 	List<ICustomerEntity> custList;
 	
 	@BeforeClass
-	public static void init(){
+	public void init(){
 		SingletonQueueCreator.createInstance(2);
 		selectQueueForCust = new EmptyQueueSelection();
 	}
@@ -56,7 +55,7 @@ public class SelectionChainTest {
 	public void testSelectQueueChain_assignFirstQueueWhenItemsEqualTypeB(){
 		selectQueueForCust.selectQueue(new CustomerEntity("B 3 4"));
 		Assert.assertEquals(SingletonQueueCreator.getAvailableCashiers().get(0).getQueueLength(),3);
-		Assert.assertEquals(SingletonQueueCreator.getAvailableCashiers().get(1).getQueueLength(),4);
+		Assert.assertEquals(SingletonQueueCreator.getAvailableCashiers().get(1).getQueueLength(),2);
 	}
 	
 	@Test

@@ -7,13 +7,14 @@ import java.util.stream.Collectors;
 
 import com.store.entities.ICustomerEntity;
 import com.store.managers.ICustomerManager;
+import com.store.managers.IQueueManager;
 import com.store.queue.selection.EmptyQueueSelection;
 import com.store.queue.selection.QueueSelectionChain;
 
 public class CustomerManager implements ICustomerManager{
 
 	private List<ICustomerEntity> customersInStore;
-	private QueueManager queueManager;
+	private IQueueManager queueManager;
 	private QueueSelectionChain selectQueueForCust;
 	private boolean firstCustomerStratsBill;
 	

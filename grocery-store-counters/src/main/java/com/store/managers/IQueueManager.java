@@ -4,8 +4,8 @@ import com.store.entities.ICustomerEntity;
 
 public interface IQueueManager {
 
+	public boolean isAllCheckoutsDone();
 	public void checkoutItemsFromQueues();
-	public int getremainintItemsForCustomer();
 	public void removeCustomerFromQueue(ICustomerEntity cust);
 	
 }

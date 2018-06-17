@@ -35,13 +35,6 @@ public class QueueManager implements IQueueManager {
 		.forEach(registerCounter -> registerCounter.cashierBillsAnItem());
 	}
 
-	/**
-	 * 
-	 */
-	@Override
-	public int getremainintItemsForCustomer() {
-		return 0;
-	}
 
 	/**
 	 * 

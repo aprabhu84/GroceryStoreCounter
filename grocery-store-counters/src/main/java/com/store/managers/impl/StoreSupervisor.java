@@ -2,6 +2,7 @@ package com.store.managers.impl;
 
 import com.store.exception.GenericStoreException;
 import com.store.logger.StoreEventLogger;
+import com.store.managers.ICustomerManager;
 import com.store.managers.IStoreSupervisor;
 import com.store.object.StoreInfoReader;
 import com.store.object.StoreReadyBO;
@@ -12,7 +13,7 @@ public class StoreSupervisor implements IStoreSupervisor {
 	String storeInfoFileName;
 	int timeT = 0;
 
-	CustomerManager custManager;
+	ICustomerManager custManager;
 	StoreReadyBO storeReadyBO;
 
 	/**
