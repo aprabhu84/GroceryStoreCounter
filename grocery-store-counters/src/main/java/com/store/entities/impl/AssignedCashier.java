@@ -22,6 +22,9 @@ public class AssignedCashier implements IAssignedCashier {
 		this.timeCounter = cashierType.getExperties();
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void customerArrivesAtQueue(ICustomerEntity cust) {
 		if (cust.getItemsInHand() > 0) {
@@ -34,6 +37,9 @@ public class AssignedCashier implements IAssignedCashier {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void cashierBillsAnItem() {
 		if (isTimeToBill() && !register.getCustQueue().isEmpty()) {
@@ -46,6 +52,9 @@ public class AssignedCashier implements IAssignedCashier {
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void customerLeavesQueue(ICustomerEntity cust) {
 		StoreEventLogger.logMessage(cust, "Customer Leaves the Queue " + register.getAssignedRegId());
@@ -55,23 +64,35 @@ public class AssignedCashier implements IAssignedCashier {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int getItemCountFromLastCustomer() {
 		return itemsWithLastCustomer;
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int getQueueLength() {
 		return register.getCustQueue().size();
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int getAssignedRegisterId() {
 		return register.getAssignedRegId();
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public boolean isRegWithZeroItemsCust() {
 		if (register.getCustQueue().size() >= 0)

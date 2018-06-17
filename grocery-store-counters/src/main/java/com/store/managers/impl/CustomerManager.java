@@ -38,13 +38,17 @@ public class CustomerManager implements ICustomerManager{
 		customerReadyToCheckout(atTimeT).forEach(customer -> selectQueueForCust.selectQueue(customer));
 	}
 
-
+	/**
+	 * 
+	 */
 	@Override
 	public void customersWaitFullCheckout() {
 		queueManager.checkoutItemsFromQueues();
 	}
 
-
+	/**
+	 * 
+	 */
 	@Override
 	public void customersLeaveQueue() {
 		List<ICustomerEntity> zeroItemsCusts = new ArrayList<ICustomerEntity>();
@@ -58,6 +62,11 @@ public class CustomerManager implements ICustomerManager{
 		customersInStore.removeAll(zeroItemsCusts);
 	}
 	
+	/**
+	 * 
+	 * @param atTimeT
+	 * @return
+	 */
 	private List<ICustomerEntity> customerReadyToCheckout(int atTimeT){
 		List<ICustomerEntity> readyCustomers = new ArrayList<ICustomerEntity>();
 		customersInStore.forEach(cust -> {
@@ -70,14 +79,12 @@ public class CustomerManager implements ICustomerManager{
 		return readyCustomers;
 	}
 
-
+	/**
+	 * 
+	 */
 	@Override
 	public boolean checkAllCustomersDoneBilling() {
 		return (queueManager.isAllCheckoutsDone() && customersInStore.stream().allMatch(cust -> cust.getItemsInHand() == 0));
 		
 	}
-
-	
-	
-	
 }

@@ -28,17 +28,26 @@ public class QueueManager implements IQueueManager {
 		return (SingletonQueueCreator.getAvailableCashiers().stream().allMatch(registerCounter -> registerCounter.getQueueLength() == 0));
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void checkoutItemsFromQueues() {
 		SingletonQueueCreator.getAvailableCashiers()
 		.forEach(registerCounter -> registerCounter.cashierBillsAnItem());
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int getremainintItemsForCustomer() {
 		return 0;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void removeCustomerFromQueue(ICustomerEntity cust) {
 		List<IAssignedCashier> queueWithZeroItems = SingletonQueueCreator.getAvailableCashiers()

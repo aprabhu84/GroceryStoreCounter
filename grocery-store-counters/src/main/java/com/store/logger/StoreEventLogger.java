@@ -8,6 +8,11 @@ public interface StoreEventLogger {
 
 	static boolean logEnabled = true;
 	
+	/**
+	 * 
+	 * @param cust
+	 * @param message
+	 */
 	static void logCustomerMessage(ICustomerEntity cust, String message){
 		if (logEnabled){
 			System.out.println(message + " - : - " + cust.getCustomerType() + " " + cust.getTimeArrived()
@@ -15,6 +20,11 @@ public interface StoreEventLogger {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param regCount
+	 * @param message
+	 */
 	static void logRegisterCounterMessage(IAssignedCashier regCount, String message){
 		if (logEnabled){
 			System.out.println(message + " - : - " + regCount.getAssignedRegisterId() + " is with " + regCount.getQueueLength()
@@ -22,7 +32,11 @@ public interface StoreEventLogger {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @param obj
+	 * @param message
+	 */
 	public static void logMessage(Object obj, String message){
 		if (obj instanceof ICustomerEntity){
 			logCustomerMessage ((ICustomerEntity)obj, message);
@@ -33,6 +47,10 @@ public interface StoreEventLogger {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param message
+	 */
 	public static void logMessage(String message){
 		System.out.println(message);
 	}

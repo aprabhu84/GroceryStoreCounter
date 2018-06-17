@@ -22,6 +22,9 @@ public class CustTypeBQueueSelection implements QueueSelectionChain {
 		tryNextAssignment(new InvalidCustomerInChain());
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void selectQueue(ICustomerEntity cust) {
 		if (cust.getCustomerType().equals(CustomerTypeEnum.B)) {
@@ -34,6 +37,9 @@ public class CustTypeBQueueSelection implements QueueSelectionChain {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void tryNextAssignment(QueueSelectionChain tryNextSelection) {
 		this.tryNextSelection = tryNextSelection;
