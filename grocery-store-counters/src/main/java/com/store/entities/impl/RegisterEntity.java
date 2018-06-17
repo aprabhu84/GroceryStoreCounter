@@ -16,7 +16,6 @@ public class RegisterEntity implements IRegisterEntity{
 	/**
 	 * 
 	 * @param assignedRegId
-	 * @param cashierType
 	 */
 	public RegisterEntity(int assignedRegId) {
 		this.assignedRegId = assignedRegId;
@@ -26,7 +25,6 @@ public class RegisterEntity implements IRegisterEntity{
 
 	/**
 	 * 
-	 * @return
 	 */
 	public int getAssignedRegId() {
 		return assignedRegId;
@@ -35,7 +33,6 @@ public class RegisterEntity implements IRegisterEntity{
 	
 	/**
 	 * 
-	 * @return
 	 */
 	public int getQueueLength() {
 		return custQueue.size();

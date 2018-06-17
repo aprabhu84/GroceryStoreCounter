@@ -19,7 +19,7 @@ public class AssignedCashier implements IAssignedCashier {
 	public AssignedCashier(int assignedRegId, CashierTypeEnum cashierType) {
 		this.register = new RegisterEntity(assignedRegId);
 		this.cashierType = cashierType;
-		this.timeCounter = cashierType.getExperties();
+		this.timeCounter = cashierType.getExperties() - 1;
 	}
 
 	/**
@@ -46,6 +46,10 @@ public class AssignedCashier implements IAssignedCashier {
 			Optional<ICustomerEntity> optCust = register.getCustQueue().stream().findFirst();
 			ICustomerEntity cust = optCust.get();
 			cust.billItem();
+			if (register.getCustQueue().size()==1){
+				itemsWithLastCustomer = register.getCustQueue().get(0).getItemsInHand();
+			}
+			StoreEventLogger.logMessage(cust, " >> Item Biled at Register - " + register.getAssignedRegId());
 			StoreEventLogger.logMessage(cust,
 					"Customer is billed for 1 Item at the queue " + register.getAssignedRegId());
 		}
@@ -110,7 +114,8 @@ public class AssignedCashier implements IAssignedCashier {
 			timeCounter = cashierType.getExperties() - 1;
 			return true;
 		} else {
-			timeCounter--;
+			if(register.getCustQueue().size() > 0)
+				timeCounter--;
 			return false;
 		}
 	}

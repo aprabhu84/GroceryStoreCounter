@@ -48,8 +48,8 @@ public class StoreSupervisor implements IStoreSupervisor {
 	@Override
 	public IStoreSupervisor runStore() {
 
-		// while (true) {
-		for (int j = 0; j < 15; j++) {
+		while (true) {
+		//for (int j = 0; j < 15; j++) {
 			timeT++;
 			System.out.println("T" + timeT + " ----- ");
 			custManager.customersWaitFullCheckout();
