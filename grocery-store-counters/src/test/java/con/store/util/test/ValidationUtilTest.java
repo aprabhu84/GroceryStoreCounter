@@ -3,7 +3,7 @@ package con.store.util.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import con.store.util.ValidationUtil;
+import com.store.util.ValidationUtil;
 
 public class ValidationUtilTest {
 

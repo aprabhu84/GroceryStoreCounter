@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.store.entities.IAssignedCashier;
 import com.store.entities.ICustomerEntity;
-import com.store.entities.IRegisterEntity;
 import com.store.enums.CustomerTypeEnum;
 import com.store.queue.SingletonQueueCreator;
 

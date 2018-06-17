@@ -1,7 +1,5 @@
 package com.store.opens;
 
-import java.io.IOException;
-
 import com.store.exception.GenericStoreException;
 import com.store.managers.impl.StoreSupervisor;
 

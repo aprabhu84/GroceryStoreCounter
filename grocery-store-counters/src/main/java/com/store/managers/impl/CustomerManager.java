@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.store.entities.ICustomerEntity;
-import com.store.logger.StoreEventLogger;
 import com.store.managers.ICustomerManager;
 import com.store.queue.selection.EmptyQueueSelection;
 import com.store.queue.selection.QueueSelectionChain;

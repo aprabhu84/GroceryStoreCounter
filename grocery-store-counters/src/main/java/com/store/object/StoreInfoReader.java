@@ -10,8 +10,7 @@ import com.store.entities.ICustomerEntity;
 import com.store.entities.impl.CustomerEntity;
 import com.store.exception.GenericStoreException;
 import com.store.logger.StoreEventLogger;
-
-import con.store.util.ValidationUtil;
+import com.store.util.ValidationUtil;
 
 public class StoreInfoReader {
 

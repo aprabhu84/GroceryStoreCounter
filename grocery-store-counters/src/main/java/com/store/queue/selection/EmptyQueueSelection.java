@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import com.store.entities.IAssignedCashier;
 import com.store.entities.ICustomerEntity;
-import com.store.entities.IRegisterEntity;
 import com.store.queue.SingletonQueueCreator;
 
 public class EmptyQueueSelection implements QueueSelectionChain {

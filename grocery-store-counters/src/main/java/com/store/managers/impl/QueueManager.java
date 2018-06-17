@@ -9,8 +9,6 @@ import com.store.managers.IQueueManager;
 import com.store.queue.SingletonQueueCreator;
 
 public class QueueManager implements IQueueManager {
-
-	private boolean firstCustomerArrived = false;
 	
 	/**
 	 * 

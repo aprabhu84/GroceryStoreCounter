@@ -1,7 +1,5 @@
 package com.store.entities;
 
-import java.util.List;
-
 public interface IAssignedCashier {
 
 	public void customerArrivesAtQueue(ICustomerEntity cust);

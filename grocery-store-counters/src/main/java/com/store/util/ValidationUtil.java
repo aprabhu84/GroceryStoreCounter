@@ -1,4 +1,4 @@
-package con.store.util;
+package com.store.util;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

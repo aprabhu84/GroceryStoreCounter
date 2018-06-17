@@ -6,6 +6,11 @@ public class GenericStoreException extends Exception {
 	
 	/**
 	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
 	 * @param Message
 	 */
 	public GenericStoreException(String message){

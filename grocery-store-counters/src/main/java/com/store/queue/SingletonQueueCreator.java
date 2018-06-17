@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.store.entities.IAssignedCashier;
-import com.store.entities.IRegisterEntity;
 import com.store.entities.impl.AssignedCashier;
-import com.store.entities.impl.RegisterEntity;
 import com.store.enums.CashierTypeEnum;
 
 public class SingletonQueueCreator {
